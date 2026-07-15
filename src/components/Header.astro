@@ -1,0 +1,84 @@
+---
+import { Image } from 'astro:assets';
+import mark from '~/assets/brand/mark.png';
+import { NAV, SITE, waLink } from '~/lib/site';
+
+const currentPath = Astro.url.pathname;
+const waHref = waLink('Halo SBS, saya ingin konsultasi proyek.');
+---
+
+<header class="sticky top-0 z-40 border-b border-seam bg-paper/95 backdrop-blur-sm">
+  <div class="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-4 sm:px-6">
+    <a href="/" class="flex items-center gap-3" aria-label={SITE.name}>
+      <Image src={mark} alt="" width={72} height={72} class="size-9" aria-hidden="true" />
+      <span class="leading-none">
+        <span class="display-panel block text-base">SBS</span>
+        <span class="label-spec block text-[0.5625rem]">Sarana Berkah Sejahtera</span>
+      </span>
+    </a>
+
+    <nav class="hidden items-center gap-1 md:flex" aria-label="Navigasi utama">
+      {
+        NAV.map((item) => (
+          <a
+            href={item.href}
+            aria-current={currentPath.startsWith(item.href) ? 'page' : undefined}
+            class:list={[
+              'rounded-panel border-b-2 px-3 py-2 font-display text-sm font-semibold uppercase tracking-wide transition-colors',
+              currentPath.startsWith(item.href)
+                ? 'border-safety text-ink'
+                : 'border-transparent text-steel-600 hover:text-ink',
+            ]}
+          >
+            {item.label}
+          </a>
+        ))
+      }
+      <a href={waHref} class="btn-safety ml-3 !py-2 text-xs" target="_blank" rel="noopener">
+        Konsultasi
+      </a>
+    </nav>
+
+    <button
+      id="nav-toggle"
+      class="grid size-10 place-items-center md:hidden"
+      aria-expanded="false"
+      aria-controls="nav-mobile"
+      aria-label="Buka menu"
+    >
+      <span class="flex w-5 flex-col gap-1" aria-hidden="true">
+        <span class="h-0.5 bg-ink"></span>
+        <span class="h-0.5 bg-ink"></span>
+        <span class="h-1 bg-safety"></span>
+      </span>
+    </button>
+  </div>
+
+  <nav id="nav-mobile" class="hidden border-t border-seam md:hidden" aria-label="Navigasi seluler">
+    <div class="mx-auto max-w-6xl space-y-1 px-4 py-4 sm:px-6">
+      {
+        NAV.map((item) => (
+          <a
+            href={item.href}
+            class="block rounded-panel px-3 py-3 font-display text-base font-semibold uppercase tracking-wide text-steel-700 hover:bg-white"
+          >
+            {item.label}
+          </a>
+        ))
+      }
+      <a href={waHref} class="btn-safety mt-2 w-full justify-center" target="_blank" rel="noopener">
+        Konsultasi via WhatsApp
+      </a>
+    </div>
+  </nav>
+</header>
+
+<script>
+  const toggle = document.getElementById('nav-toggle');
+  const menu = document.getElementById('nav-mobile');
+  toggle?.addEventListener('click', () => {
+    const open = menu?.classList.toggle('hidden') === false;
+    toggle.setAttribute('aria-expanded', String(open));
+    toggle.setAttribute('aria-label', open ? 'Tutup menu' : 'Buka menu');
+  });
+</script>
