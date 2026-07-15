@@ -36,7 +36,7 @@ No test or lint script yet.
 The ACP panel is the unit of composition. Codified in `src/styles/global.css`:
 
 - **Surfaces compose like a facade**: modular panels, visible seams (`gap-px` grids over a `bg-seam` base, hairline borders), sharp corners (`--radius-panel: 2px`).
-- **Palette**: `steel-*` (cool aluminum neutrals), `paper`/`ink` surfaces, `seam`/`seam-dark` hairlines, `blueprint` (sparingly). **`safety` orange is the single accent** — reserved for CTAs, live status, key numbers. Don't dilute it.
+- **Palette**: `steel-*` (cool aluminum neutrals), `paper`/`ink` surfaces, `seam`/`seam-dark` hairlines, `blueprint` (sparingly). **`safety` hazard-yellow is the single accent** (from the SBS logo: yellow + black interlocked-hex monogram in `src/assets/brand/`). **Yellow rules:** yellow is a *surface* color — always `ink` text on yellow (`.btn-safety`, `.tag-hazard`, marker highlights); never yellow text on light backgrounds (contrast fails); yellow text is allowed on dark steel only. Don't dilute the accent.
 - **Type**: Archivo Variable for display AND body (one font file; display uses `.display-panel` — wide, black, uppercase). IBM Plex Mono for spec labels (`.label-spec`), codes, metadata.
 - Reusable classes: `.panel`, `.panel-dark`, `.btn-safety`, `.btn-ghost`, `.display-panel`, `.label-spec`. Prefer these over reinventing.
 - No glassmorphism, no glows, no gradients-as-decoration. Industrial restraint; the project photography provides the richness.

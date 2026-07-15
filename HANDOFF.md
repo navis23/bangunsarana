@@ -1,10 +1,11 @@
 # bangunsarana — Session Handoff
 
-**Last updated:** 2026-07-15 (Shu) — v0.1.0 scaffold complete.
+**Last updated:** 2026-07-15 (Shu) — v0.1.1: scaffold + real brand colors (hazard yellow).
 
 ## ⚡ TL;DR — where we are
 
-- **v0.1.0 on `claude/shu-memories-workflow-9c1vjv`** — repo reset from the old Nuxt starter to a fresh **Astro 5 + Tailwind v4** scaffold. Build green (`npm run build`).
+- **v0.1.1 on `claude/shu-memories-workflow-9c1vjv`** — repo reset from the old Nuxt starter to a fresh **Astro 5 + Tailwind v4** scaffold. Build green (`npm run build`).
+- **Brand recovered from git history**: the old repo carried the real SBS logo (`src/assets/brand/logo-full.png` + `mark.png`) — interlocked-hex SB monogram, **yellow + black**. Accent corrected from orange to hazard yellow with hard contrast rules (ink-on-yellow only; no yellow text on light).
 - This is the **SBS company website** (CV. Sarana Berkah Sejahtera — facade ACP & construction contractor, Mojokerto). Strategic purpose per TGI CEO-workspace docs: a *direct-to-owner sales weapon* — credibility + SEO → WhatsApp lead.
 - **Locked decisions (Navis, 2026-07-15):** all clients/projects publicly namable · Indonesian-only v1 · GSAP-only v1 (Three.js deferred to v0.7) · WhatsApp-direct as primary CTA.
 - **Design direction locked: "PANEL"** — the ACP panel as design system. Steel neutrals, safety-orange single accent, seam hairlines, Archivo display, Plex Mono spec labels. See CLAUDE.md + `src/styles/global.css`.
@@ -22,7 +23,7 @@
 ## 🟡 Needs from Navis (carried)
 
 - **Project photos** (Drive has galleries — need picks per project).
-- **Logo** in vector/hi-res (Drive PNG `SARANA-BERKAH-SEJAHTERA-LOGO.png` read came back empty via MCP; header currently uses a text+panel-mark wordmark).
+- **Logo vector (AI/SVG)** if it exists — hi-res PNGs recovered from git history are in `src/assets/brand/` and are good enough for now.
 - **Confirm primary WA number** — placeholder is `0821-3103-2483` (from penawaran letterhead). See TODO in `src/lib/site.ts`.
 - Hosting/deploy target (Vercel assumed, not yet wired).
 

@@ -5,6 +5,16 @@ Version source of truth: `package.json`. One entry per merged slice.
 
 ---
 
+## v0.1.1 — Real brand: hazard yellow + recovered SBS logo
+
+The old Nuxt repo's git history carried the actual SBS logo (interlocked-hex SB monogram, **yellow + black**) — recovered into `src/assets/brand/` (`logo-full.png`, `mark.png`). The PANEL accent was corrected from the guessed safety-orange to the brand's hazard yellow.
+
+- `--color-safety` → hazard yellow (oklch 0.85 0.17 92) + contrast rules encoded in tokens/docs: yellow is a *surface* color — ink text on yellow, never yellow text on light backgrounds, yellow text allowed on dark steel only.
+- `.btn-safety` → ink-on-yellow; new `.tag-hazard` chip (yellow, mono, ink) for codes/counters.
+- Header: real logo mark (astro:assets) replaces the improvised panel mark; active nav = yellow underline + ink text (was yellow text).
+- Hero: "ACP" now a yellow marker highlight; Est. badge is a hazard tag. Service codes → hazard tags.
+- Favicon recolored to brand yellow/black.
+
 ## v0.1.0 — Fresh start: Astro scaffold + PANEL design system
 
 Repo reset: the old Nuxt 3 starter is fully removed; this is now an **Astro 5 static site** with **Tailwind CSS v4** (CSS-first `@theme` config, no tailwind.config).

@@ -30,9 +30,12 @@ const services = [
   <!-- Hero — v0.2 will bring the full PANEL treatment; this is the working skeleton -->
   <section class="border-b border-seam">
     <div class="mx-auto max-w-6xl px-4 py-20 sm:px-6 md:py-28">
-      <p class="label-spec text-safety">Est. {SITE.foundingYear} — {SITE.address.locality}, {SITE.address.region}</p>
-      <h1 class="display-panel mt-4 max-w-4xl text-4xl sm:text-6xl md:text-7xl">
-        Spesialis Facade <span class="text-safety">ACP</span> & Kontraktor Bangunan
+      <p class="label-spec">
+        <span class="tag-hazard">Est. {SITE.foundingYear}</span>
+        <span class="ml-2">{SITE.address.locality}, {SITE.address.region}</span>
+      </p>
+      <h1 class="display-panel mt-5 max-w-4xl text-4xl sm:text-6xl md:text-7xl">
+        Spesialis Facade <span class="bg-safety px-2">ACP</span> & Kontraktor Bangunan
       </h1>
       <p class="mt-6 max-w-xl text-lg leading-relaxed text-steel-600">
         Dari fasad bandara hingga cluster perumahan — SBS mengerjakan fabrikasi ACP, konstruksi, dan
@@ -54,7 +57,7 @@ const services = [
       {
         services.map((s) => (
           <a href="/layanan" class="group bg-white p-6 transition-colors hover:bg-steel-50 md:p-8">
-            <p class="font-mono text-xs text-safety">{s.code}</p>
+            <p><span class="tag-hazard">{s.code}</span></p>
             <h2 class="display-panel mt-3 text-xl md:text-2xl">{s.name}</h2>
             <p class="mt-3 text-sm leading-relaxed text-steel-600">{s.desc}</p>
           </a>

@@ -25,9 +25,14 @@
   --color-steel-900: oklch(0.21 0.012 250);
   --color-steel-950: oklch(0.16 0.012 252);
 
-  /* Safety — the single accent. Critical actions, live status, key numbers. */
-  --color-safety: oklch(0.68 0.19 45);
-  --color-safety-deep: oklch(0.58 0.19 42);
+  /*
+    Safety — the single accent, taken from the SBS logo: hazard yellow.
+    RULES: yellow is a SURFACE color — always ink text on yellow; never
+    yellow text on light backgrounds (fails contrast). On dark steel,
+    yellow text is allowed.
+  */
+  --color-safety: oklch(0.85 0.17 92);
+  --color-safety-deep: oklch(0.78 0.16 88);
 
   /* Surfaces */
   --color-paper: oklch(0.975 0.002 90);
@@ -53,7 +58,7 @@
   }
 
   ::selection {
-    @apply bg-safety text-white;
+    @apply bg-safety text-ink;
   }
 }
 
@@ -79,9 +84,14 @@
     @apply rounded-panel border border-seam-dark bg-steel-900;
   }
 
-  /* Primary action — safety orange, unmistakable */
+  /* Primary action — hazard yellow, ink text, unmistakable */
   .btn-safety {
-    @apply inline-flex items-center gap-2 rounded-panel bg-safety px-5 py-3 font-display text-sm font-bold uppercase tracking-wide text-white transition-colors duration-150 hover:bg-safety-deep;
+    @apply inline-flex items-center gap-2 rounded-panel bg-safety px-5 py-3 font-display text-sm font-bold uppercase tracking-wide text-ink transition-colors duration-150 hover:bg-safety-deep;
+  }
+
+  /* Hazard tag — small yellow chip for codes/counters (ink text, always) */
+  .tag-hazard {
+    @apply inline-block rounded-panel bg-safety px-1.5 py-0.5 font-mono text-xs font-medium text-ink;
   }
 
   .btn-ghost {
