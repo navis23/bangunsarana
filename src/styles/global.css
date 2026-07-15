@@ -1,0 +1,90 @@
+@import 'tailwindcss';
+
+/*
+  PANEL — the SBS design system.
+  The ACP panel is the unit of composition: modular surfaces, visible seams,
+  aluminum/steel neutrals, one safety accent. Sharp corners, engineering type.
+*/
+
+@theme {
+  /* Type — one variable family (Archivo) carries display + body; mono for labels/specs */
+  --font-display: 'Archivo Variable', system-ui, sans-serif;
+  --font-body: 'Archivo Variable', system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+
+  /* Steel — cool aluminum neutral scale */
+  --color-steel-50: oklch(0.985 0.002 247);
+  --color-steel-100: oklch(0.96 0.003 247);
+  --color-steel-200: oklch(0.92 0.004 247);
+  --color-steel-300: oklch(0.86 0.005 247);
+  --color-steel-400: oklch(0.7 0.008 247);
+  --color-steel-500: oklch(0.55 0.01 247);
+  --color-steel-600: oklch(0.44 0.012 247);
+  --color-steel-700: oklch(0.36 0.012 248);
+  --color-steel-800: oklch(0.28 0.012 250);
+  --color-steel-900: oklch(0.21 0.012 250);
+  --color-steel-950: oklch(0.16 0.012 252);
+
+  /* Safety — the single accent. Critical actions, live status, key numbers. */
+  --color-safety: oklch(0.68 0.19 45);
+  --color-safety-deep: oklch(0.58 0.19 42);
+
+  /* Surfaces */
+  --color-paper: oklch(0.975 0.002 90);
+  --color-ink: oklch(0.17 0.01 252);
+  --color-seam: oklch(0.88 0.005 247);
+  --color-seam-dark: oklch(0.3 0.012 250);
+
+  /* Blueprint — secondary technical tone, sparingly */
+  --color-blueprint: oklch(0.48 0.09 252);
+
+  /* Panels are sharp */
+  --radius-panel: 2px;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-paper font-body text-ink antialiased;
+    font-feature-settings: 'ss01';
+  }
+
+  ::selection {
+    @apply bg-safety text-white;
+  }
+}
+
+@layer components {
+  /* Mono spec label — section eyebrows, metadata, IDs */
+  .label-spec {
+    @apply font-mono text-[0.6875rem] uppercase tracking-[0.14em] text-steel-500;
+  }
+
+  /* Display headline — wide, heavy, engineering-grade */
+  .display-panel {
+    font-family: var(--font-display);
+    font-variation-settings: 'wdth' 118;
+    @apply font-black uppercase leading-[0.92] tracking-tight;
+  }
+
+  /* A panel: sharp surface with a visible seam */
+  .panel {
+    @apply rounded-panel border border-seam bg-white;
+  }
+
+  .panel-dark {
+    @apply rounded-panel border border-seam-dark bg-steel-900;
+  }
+
+  /* Primary action — safety orange, unmistakable */
+  .btn-safety {
+    @apply inline-flex items-center gap-2 rounded-panel bg-safety px-5 py-3 font-display text-sm font-bold uppercase tracking-wide text-white transition-colors duration-150 hover:bg-safety-deep;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center gap-2 rounded-panel border border-seam bg-transparent px-5 py-3 font-display text-sm font-bold uppercase tracking-wide text-ink transition-colors duration-150 hover:border-steel-400;
+  }
+}

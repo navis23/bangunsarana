@@ -1,0 +1,55 @@
+---
+import { NAV, SITE, waLink } from '~/lib/site';
+
+const year = new Date().getFullYear();
+---
+
+<footer class="border-t border-seam-dark bg-steel-950 text-steel-300">
+  <div class="mx-auto grid max-w-6xl gap-10 px-4 py-14 sm:px-6 md:grid-cols-[2fr_1fr_1fr]">
+    <div>
+      <p class="display-panel text-2xl text-white">SBS</p>
+      <p class="label-spec mt-1 text-steel-500">Sarana Berkah Sejahtera</p>
+      <p class="mt-4 max-w-sm text-sm leading-relaxed">
+        {SITE.tagline}. Melayani developer, instansi, dan pemilik bangunan di {SITE.serviceArea.slice(0, -1).join(', ')} &
+        sekitarnya sejak {SITE.foundingYear}.
+      </p>
+    </div>
+
+    <nav aria-label="Navigasi footer">
+      <p class="label-spec mb-3 text-steel-500">Navigasi</p>
+      <ul class="space-y-2 text-sm">
+        {
+          NAV.map((item) => (
+            <li>
+              <a href={item.href} class="transition-colors hover:text-white">
+                {item.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+
+    <div>
+      <p class="label-spec mb-3 text-steel-500">Kontak</p>
+      <address class="space-y-2 text-sm not-italic">
+        <p>{SITE.address.street}, {SITE.address.locality} {SITE.address.postalCode}</p>
+        <p>
+          <a href={waLink('Halo SBS, saya ingin konsultasi proyek.')} class="transition-colors hover:text-white" target="_blank" rel="noopener">
+            {SITE.phone}
+          </a>
+        </p>
+        <p>
+          <a href={`mailto:${SITE.email}`} class="transition-colors hover:text-white">{SITE.email}</a>
+        </p>
+      </address>
+    </div>
+  </div>
+
+  <div class="border-t border-seam-dark">
+    <div class="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-2 px-4 py-4 sm:px-6">
+      <p class="font-mono text-xs text-steel-500">© {year} {SITE.legalName}</p>
+      <p class="font-mono text-xs text-steel-600">Mojokerto · Jawa Timur</p>
+    </div>
+  </div>
+</footer>
